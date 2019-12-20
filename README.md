@@ -1,6 +1,7 @@
 ## GreenPonik_PH.py Library for Raspberry pi
 ---------------------------------------------------------
-This is the sample code for Gravity: Analog pH Sensor / Meter Kit V2, SKU:SEN0161-V2
+<!-- This is the sample code for Gravity: Analog pH Sensor / Meter Kit V2, SKU:SEN0161-V2 -->
+This is the sample code for 3/4 pH industrial probes
 ## Table of Contents
 
 - [## GreenPonik_PH.py Library for Raspberry pi](#greenponikphpy-library-for-raspberry-pi)
@@ -16,7 +17,7 @@ This is the sample code for Gravity: Analog pH Sensor / Meter Kit V2, SKU:SEN016
 
 Dependencies:
 
-The [Analog pH Sensor](https://wiki.dfrobot.com/Gravity__Analog_pH_Sensor_Meter_Kit_V2_SKU_SEN0161-V2) should work with ADS1115
+<!-- The [Analog pH Sensor](https://wiki.dfrobot.com/Gravity__Analog_pH_Sensor_Meter_Kit_V2_SKU_SEN0161-V2) should work with ADS1115 -->
 [DFRobot_ADS1115](https://github.com/DFRobot/DFRobot_ADS1115/tree/master/RaspberryPi/Python) 
 
 Call modules:
@@ -68,7 +69,7 @@ in libs folder
 ```Python
 import sys
 sys.path.insert(0,'libs/DFRobot_ADS1115/RaspberryPi/Python/')
-sys.path.insert(0,'libs/GreenPonik_PH_Python/src/')
+sys.path.insert(0,'libs/GreenPonik_PH_Python_industrial_probes/src/')
 
 
 from DFRobot_ADS1115 import ADS1115
@@ -113,7 +114,7 @@ in libs folder
 ```Python
 import sys
 sys.path.insert(0,'libs/DFRobot_ADS1115/RaspberryPi/Python/')
-sys.path.insert(0,'libs/GreenPonik_PH_Python/src/')
+sys.path.insert(0,'libs/GreenPonik_PH_Python_industrial_probes/src/')
 
 from DFRobot_ADS1115 import ADS1115
 from GreenPonik_PH import GreenPonik_PH
@@ -150,15 +151,15 @@ read both pH and EC => PH_EC.py
 
 in libs folder
 
-> git clone https://github.com/GreenPonik/GreenPonik_PH_Python_indus_probe.git
+> git clone https://github.com/GreenPonik/GreenPonik_PH_Python_industrial_probes.git
 
 > git clone https://github.com/DFRobot/DFRobot_ADS1115.git
 
 ```Python
 import sys
 sys.path.insert(0,'libs/DFRobot_ADS1115/RaspberryPi/Python/')
-sys.path.insert(0,'libs/GreenPonik_EC_Python/src/')
-sys.path.insert(0,'libs/GreenPonik_PH_Python_indus_probe/src/')
+sys.path.insert(0,'libs/GreenPonik_EC_Python_industrial_probes/src/')
+sys.path.insert(0,'libs/GreenPonik_PH_Python_industrial_probes/src/')
 
 
 ADS1115_REG_CONFIG_PGA_6_144V        = 0x00 # 6.144V range = Gain 2/3
@@ -206,4 +207,4 @@ while True:
 ## Credits
 Writter by Mickael Lehoux, from [GreenPonik](https://www.greenponik.com), 2019
 
-based on [DFRobot library](https://github.com/DFRobot/DFRobot_PH/tree/master/RaspberryPi/Python)
+based on [GreenPonik PH Python](https://github.com/GreenPonik/GreenPonik_PH_Python)
