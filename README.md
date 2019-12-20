@@ -150,7 +150,7 @@ read both pH and EC => PH_EC.py
 
 in libs folder
 
-> git clone https://github.com/GreenPonik/GreenPonik_EC_Python.git
+> git clone https://github.com/GreenPonik/GreenPonik_PH_Python_indus_probe.git
 
 > git clone https://github.com/DFRobot/DFRobot_ADS1115.git
 
@@ -158,7 +158,7 @@ in libs folder
 import sys
 sys.path.insert(0,'libs/DFRobot_ADS1115/RaspberryPi/Python/')
 sys.path.insert(0,'libs/GreenPonik_EC_Python/src/')
-sys.path.insert(0,'libs/GreenPonik_PH_Python/src/')
+sys.path.insert(0,'libs/GreenPonik_PH_Python_indus_probe/src/')
 
 
 ADS1115_REG_CONFIG_PGA_6_144V        = 0x00 # 6.144V range = Gain 2/3
