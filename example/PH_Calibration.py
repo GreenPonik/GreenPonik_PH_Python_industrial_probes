@@ -1,3 +1,4 @@
+import time
 import sys
 sys.path.insert(0,'../libs/DFRobot_ADS1115/RaspberryPi/Python/')
 sys.path.insert(0,'../src/')
@@ -29,4 +30,7 @@ def calibration():
     return ph.calibration(adc1['r'])
 
 
-calibration()
+if __name__ == "__main__":
+    while True:
+        calibration()
+        time.sleep(1)
