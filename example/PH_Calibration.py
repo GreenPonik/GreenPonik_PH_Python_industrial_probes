@@ -27,6 +27,7 @@ def calibration():
     ads1115.setGain(ADS1115_REG_CONFIG_PGA_6_144V)
     # Get the Digital Value of Analog of selected channel
     adc1 = ads1115.readVoltage(1)
+    print("calibration voltage: %.3f" % adc1['r'])
     return ph.calibration(adc1['r'])
 
 
