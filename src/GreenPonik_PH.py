@@ -7,7 +7,7 @@
 ####################################################################
 ####################################################################
 ####################################################################
-Based on DFRobot_PH library
+Based on GreenPonik_PH_Python library
 https://github.com/GreenPonik/GreenPonik_PH_Python
 
 Need DFRobot_ADS1115 library

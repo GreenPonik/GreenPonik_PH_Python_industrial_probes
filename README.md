@@ -1,6 +1,5 @@
 ## GreenPonik_PH.py Library for Raspberry pi
 ---------------------------------------------------------
-<!-- This is the sample code for Gravity: Analog pH Sensor / Meter Kit V2, SKU:SEN0161-V2 -->
 This is the sample code for 3/4 pH industrial probes
 ## Table of Contents
 
@@ -17,7 +16,6 @@ This is the sample code for 3/4 pH industrial probes
 
 Dependencies:
 
-<!-- The [Analog pH Sensor](https://wiki.dfrobot.com/Gravity__Analog_pH_Sensor_Meter_Kit_V2_SKU_SEN0161-V2) should work with ADS1115 -->
 [DFRobot_ADS1115](https://github.com/DFRobot/DFRobot_ADS1115/tree/master/RaspberryPi/Python) 
 
 Call modules:
@@ -68,8 +66,8 @@ in libs folder
 > git clone https://github.com/DFRobot/DFRobot_ADS1115.git
 ```Python
 import sys
-sys.path.insert(0,'libs/DFRobot_ADS1115/RaspberryPi/Python/')
-sys.path.insert(0,'libs/GreenPonik_PH_Python_industrial_probes/src/')
+sys.path.insert(0,'../libs/DFRobot_ADS1115/RaspberryPi/Python/')
+sys.path.insert(0,'../src/')
 
 
 from DFRobot_ADS1115 import ADS1115
