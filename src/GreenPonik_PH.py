@@ -19,7 +19,8 @@ import time
 import sys
 
 # _temperature      = 25.0
-_acidVoltage = 2032.44
+# _acidVoltage = 2032.44
+_acidVoltage = 2000
 _acidOffset = 178
 _neutralVoltage = 1500.0
 _neutralOffset = 178
