@@ -18,11 +18,9 @@ https://github.com/DFRobot/DFRobot_ADS1115/tree/master/RaspberryPi/Python
 import time
 import sys
 
-# _temperature      = 25.0
-# _acidVoltage = 2032.44
-_acidVoltage = 2000
+_acidVoltage = 2000.00
 _acidOffset = 178
-_neutralVoltage = 1500.0
+_neutralVoltage = 1520.00
 _neutralOffset = 178
 
 
@@ -43,7 +41,6 @@ class GreenPonik_PH():
             self.reset()
             pass
 
-    # def readPH(self,voltage,temperature):
     def readPH(self, voltage):
         global _acidVoltage
         global _neutralVoltage
@@ -55,7 +52,6 @@ class GreenPonik_PH():
         return _phValue
 
     def calibration(self, voltage):
-        # if (voltage>1322 and voltage<1678): # automated 7 buffer solution detection
         # automated 7 buffer solution detection
         if (voltage > (_neutralVoltage - _neutralOffset) and voltage < (_neutralVoltage + _neutralOffset)):
             print(">>>Buffer Solution:7.0")
@@ -73,7 +69,6 @@ class GreenPonik_PH():
                        'voltage': voltage,
                        'status_message': status_msg}
             return cal_res
-        # elif (voltage > 1854 and voltage < 2210):  # automated 4 buffer solution detection
         # automated 4 buffer solution detection
         elif (voltage > (_acidVoltage - _acidOffset) and voltage < (_acidVoltage + _acidOffset)):
             print(">>>Buffer Solution:4.0")
@@ -97,8 +92,8 @@ class GreenPonik_PH():
             return cal_res
 
     def reset(self):
-        _acidVoltage = 2032.44
-        _neutralVoltage = 1500.0
+        _acidVoltage = 2000.00
+        _neutralVoltage = 1520.0
         try:
             f = open('phdata.txt', 'r+')
             flist = f.readlines()
