@@ -1,7 +1,7 @@
 import sys
 sys.path.insert(0,'libs/DFRobot_ADS1115/RaspberryPi/Python/')
-sys.path.insert(0,'libs/GreenPonik_EC_Python/src/')
-sys.path.insert(0,'libs/GreenPonik_PH_Python/src/')
+sys.path.insert(0,'libs/GreenPonik_EC_Python_industrial_probes/src/')
+sys.path.insert(0,'../src/')
 
 
 ADS1115_REG_CONFIG_PGA_6_144V        = 0x00 # 6.144V range = Gain 2/3

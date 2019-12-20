@@ -1,6 +1,6 @@
 import sys
 sys.path.insert(0,'libs/DFRobot_ADS1115/RaspberryPi/Python/')
-sys.path.insert(0,'libs/GreenPonik_PH_Python/src/')
+sys.path.insert(0,'../src/')
 
 
 from DFRobot_ADS1115 import ADS1115
