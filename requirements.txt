@@ -1,1 +1,5 @@
 https://github.com/DFRobot/DFRobot_ADS1115.git
+
+# to use example PH_EC.py you need to add
+https://github.com/GreenPonik/GreenPonik_PH_Python_industrial_probes.git
+# in the /libs folder
