@@ -77,7 +77,7 @@ class GreenPonik_PH():
             f = open('phdata.txt', 'w+')
             f.writelines(flist)
             f.close()
-            status_msg = ">>>PH:4.0 Calibration completed<<<""
+            status_msg = ">>>PH:4.0 Calibration completed<<<"
             print(status_msg)
             time.sleep(5.0)
             cal_res = {'status': 4,
