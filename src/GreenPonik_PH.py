@@ -13,13 +13,12 @@ https://github.com/GreenPonik/GreenPonik_PH_Python
 Need DFRobot_ADS1115 library
 https://github.com/DFRobot/DFRobot_ADS1115/tree/master/RaspberryPi/Python
 """
-
-
 import time
-import sys
 
+# pH 4.0
 _acidVoltage = 2000.00
 _acidOffset = 178
+# pH 7.0
 _neutralVoltage = 1520.00
 _neutralOffset = 178
 
@@ -29,14 +28,18 @@ class GreenPonik_PH():
         global _acidVoltage
         global _neutralVoltage
         try:
+            print(">>>Initialization of ph lib<<<")
             with open('phdata.txt', 'r') as f:
                 neutralVoltageLine = f.readline()
                 neutralVoltageLine = neutralVoltageLine.strip(
                     'neutralVoltage=')
                 _neutralVoltage = float(neutralVoltageLine)
+                print("get neutral voltage from txt file: %d" %
+                      _neutralVoltage)
                 acidVoltageLine = f.readline()
                 acidVoltageLine = acidVoltageLine.strip('acidVoltage=')
                 _acidVoltage = float(acidVoltageLine)
+                print("get acid voltage from txt file: %d" % _acidVoltage)
         except:
             self.reset()
             pass
@@ -44,10 +47,10 @@ class GreenPonik_PH():
     def readPH(self, voltage):
         global _acidVoltage
         global _neutralVoltage
-        slope = (7.0-4.0)/((_neutralVoltage-1500.0) /
-                           3.0 - (_acidVoltage-1500.0)/3.0)
-        intercept = 7.0 - slope*(_neutralVoltage-1500.0)/3.0
-        _phValue = slope*(voltage-1500.0)/3.0+intercept
+        slope = (7.0-4.0)/((_neutralVoltage-1520.0) /
+                           3.0 - (_acidVoltage-1520.0)/3.0)
+        intercept = 7.0 - slope*(_neutralVoltage-1520.0)/3.0
+        _phValue = slope*(voltage-1520.0)/3.0+intercept
         round(_phValue, 2)
         return _phValue
 
@@ -91,9 +94,13 @@ class GreenPonik_PH():
             return cal_res
 
     def reset(self):
+        global _acidVoltage
+        global _neutralVoltage
         _acidVoltage = 2000.00
         _neutralVoltage = 1520.0
+        print(">>>Reset to default parameters<<<")
         try:
+            print(">>>Read voltages from txt files<<<")
             f = open('phdata.txt', 'r+')
             flist = f.readlines()
             flist[0] = 'neutralVoltage=' + str(_neutralVoltage) + '\n'
@@ -101,11 +108,11 @@ class GreenPonik_PH():
             f = open('phdata.txt', 'w+')
             f.writelines(flist)
             f.close()
-            print(">>>Reset to default parameters<<<")
         except:
+            print(">>>Cannot read voltages from txt files<<<")
+            print(">>>Let's create them and apply the default values<<<")
             f = open('phdata.txt', 'w')
             flist = 'neutralVoltage=' + str(_neutralVoltage) + '\n'
             flist += 'acidVoltage=' + str(_acidVoltage) + '\n'
             f.writelines(flist)
             f.close()
-            print(">>>Reset to default parameters<<<")
