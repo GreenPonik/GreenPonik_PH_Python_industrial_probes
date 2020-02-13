@@ -23,13 +23,16 @@ _neutralVoltage = 1520.00
 _neutralOffset = 178
 
 
+TXT_FILE_PATH = "/home/greenponik/bundle_project_raspberry_core/"
+
+
 class GreenPonik_PH():
     def begin(self):
         global _acidVoltage
         global _neutralVoltage
         try:
             print(">>>Initialization of ph lib<<<")
-            with open('phdata.txt', 'r') as f:
+            with open('%sphdata.txt' % TXT_FILE_PATH, 'r') as f:
                 neutralVoltageLine = f.readline()
                 neutralVoltageLine = neutralVoltageLine.strip(
                     'neutralVoltage=')
@@ -58,10 +61,10 @@ class GreenPonik_PH():
         # automated 7 buffer solution detection
         if (voltage > (_neutralVoltage - _neutralOffset) and voltage < (_neutralVoltage + _neutralOffset)):
             print(">>>Buffer Solution:7.0")
-            f = open('phdata.txt', 'r+')
+            f = open('%sphdata.txt' % TXT_FILE_PATH, 'r+')
             flist = f.readlines()
             flist[0] = 'neutralVoltage=' + str(voltage) + '\n'
-            f = open('phdata.txt', 'w+')
+            f = open('%sphdata.txt' % TXT_FILE_PATH, 'w+')
             f.writelines(flist)
             f.close()
             status_msg = ">>>PH:7.0 Calibration completed<<<"
@@ -74,10 +77,10 @@ class GreenPonik_PH():
         # automated 4 buffer solution detection
         elif (voltage > (_acidVoltage - _acidOffset) and voltage < (_acidVoltage + _acidOffset)):
             print(">>>Buffer Solution:4.0")
-            f = open('phdata.txt', 'r+')
+            f = open('%sphdata.txt' % TXT_FILE_PATH, 'r+')
             flist = f.readlines()
             flist[1] = 'acidVoltage=' + str(voltage) + '\n'
-            f = open('phdata.txt', 'w+')
+            f = open('%sphdata.txt' % TXT_FILE_PATH, 'w+')
             f.writelines(flist)
             f.close()
             status_msg = ">>>PH:4.0 Calibration completed<<<"
@@ -101,17 +104,17 @@ class GreenPonik_PH():
         print(">>>Reset to default parameters<<<")
         try:
             print(">>>Read voltages from txt files<<<")
-            f = open('phdata.txt', 'r+')
+            f = open('%sphdata.txt' % TXT_FILE_PATH, 'r+')
             flist = f.readlines()
             flist[0] = 'neutralVoltage=' + str(_neutralVoltage) + '\n'
             flist[1] = 'acidVoltage=' + str(_acidVoltage) + '\n'
-            f = open('phdata.txt', 'w+')
+            f = open('%sphdata.txt' % TXT_FILE_PATH, 'w+')
             f.writelines(flist)
             f.close()
         except:
             print(">>>Cannot read voltages from txt files<<<")
             print(">>>Let's create them and apply the default values<<<")
-            f = open('phdata.txt', 'w')
+            f = open('%sphdata.txt' % TXT_FILE_PATH, 'w')
             flist = 'neutralVoltage=' + str(_neutralVoltage) + '\n'
             flist += 'acidVoltage=' + str(_acidVoltage) + '\n'
             f.writelines(flist)
