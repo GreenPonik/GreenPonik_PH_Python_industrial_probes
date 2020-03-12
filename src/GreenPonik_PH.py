@@ -50,6 +50,7 @@ class GreenPonik_PH():
     def readPH(self, voltage):
         global _acidVoltage
         global _neutralVoltage
+        print(">>>current voltage is: %.3f mV" % voltage)
         slope = (7.0-4.0)/((_neutralVoltage-1520.0) /
                            3.0 - (_acidVoltage-1520.0)/3.0)
         intercept = 7.0 - slope*(_neutralVoltage-1520.0)/3.0
