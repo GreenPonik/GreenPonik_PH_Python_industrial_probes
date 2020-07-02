@@ -55,8 +55,7 @@ class GreenPonik_PH():
                            3.0 - (_acidVoltage-1520.0)/3.0)
         intercept = 7.0 - slope*(_neutralVoltage-1520.0)/3.0
         _phValue = slope*(voltage-1520.0)/3.0+intercept
-        round(_phValue, 2)
-        return _phValue
+        return round(_phValue, 2)
 
     def calibration(self, voltage):
         # automated 7 buffer solution detection
